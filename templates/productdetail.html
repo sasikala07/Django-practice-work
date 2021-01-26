@@ -1,0 +1,61 @@
+
+
+{% extends 'mypage.html' %}
+
+   {%  block pagetitle %}
+
+     product info for {{product.name}}
+
+   {% endblock %}
+
+{% block content%}
+
+
+
+
+
+<table>
+    <tr>
+        <td>pid</td>
+        <td> {{product.pid}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Name</td>
+        <td> <a href="/product/prodetail/{{product.pid}}"target="_blank"> {{product.name}} </a></td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td> {{product.price}} </td>
+    </tr>
+
+    {% if product.features %}
+     <tr>
+        <td>Features</td>
+         <td>
+             <ul>
+                 {% for feature in product.features %}
+                 <li>{{feature}}</li>
+                 {% endfor %}
+             </ul>
+
+         </td>
+    </tr>
+
+    {% endif %}
+
+
+    <tr>
+        <form action="/product/addtocart" method="get">
+        <td> Quantity </td>
+        <td>
+            <input type="hidden" name="id" value="{{product.pid}}">
+            <input type="text" value="1" name="qty">
+            <input type="submit" value="Add To Cart">
+        </td>
+        </form>
+    </tr>
+</table>
+
+{% endblock %}

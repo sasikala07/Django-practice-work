@@ -1,0 +1,59 @@
+
+
+{% extends 'mypage.html' %}
+
+{%  block main %}
+<h1>product list page</h1>
+
+{% for product in products %}
+
+<table border="1">
+
+    <tr>
+        <td>Name</td>
+        <td> <a href="/product/details/{{product.pid}}"> {{product.name}} </a></td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td> {{product.price}} </td>
+    </tr>
+
+    {% if product.features %}
+     <tr>
+        <td>Features</td>
+         <td>
+             <ul>
+                 {% for feature in product.features %}
+                 <li>{{feature}}</li>
+                 {% endfor %}
+             </ul>
+
+         </td>
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <td>Features</td>
+        <td>NA</td>
+    </tr>
+
+
+    {% endif %}
+
+
+</table>
+{% endfor %}
+
+{% endblock %}
+
+{%  block title %}
+   <title>Home</title>
+{% endblock %}
+
+
+
+
+
+
+

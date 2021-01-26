@@ -1,0 +1,75 @@
+
+
+
+{% extends 'mypage.html' %}
+
+{%  block main %}
+
+<h1> This is new product detail page !!!! </h1>
+
+<table>
+
+    <tr>
+        <td>Name</td>
+        <td>  {{name}} </td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td> {{price}} </td>
+    </tr>
+    {% if features %}
+     <tr>
+        <td>Features</td>
+         <td>
+             <ul>
+
+                 {% for feature in features %}
+                 <li>{{feature}}</li>
+                 {% endfor %}
+
+             </ul>
+
+         </td>
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <td>Features</td>
+        <td>NA</td>
+    </tr>
+
+
+    {% endif %}
+
+
+</table>
+
+<tr>
+    <td> Quantity </td>
+    <td>
+
+
+        <form action="/product/addtocart" method="POST">
+            {% csrf_token%}
+            <input type="hidden" name="id" value="{{pid}}">
+            <input type="text" value="1" name="qty">
+            <input type="submit" value="Add To Cart">
+
+
+        </form>
+    </td>
+    </tr>
+
+
+
+{% endblock %}
+
+{%  block title %}
+   <title>Home</title>
+{% endblock %}
+
+
+
+
+
