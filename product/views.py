@@ -52,3 +52,8 @@ def addtocart(req):
     print(req.session['cart'])
 
     return HttpResponse(' Item added to cart')
+
+
+def displaycart(request):
+
+    return HttpResponse(request.session['cart'])
