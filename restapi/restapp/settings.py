@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'profileapp',
     'rest_framework',
-    'todoapp'
+    'todoapp',
+    'bookapp'
 ]
 
 MIDDLEWARE = [
