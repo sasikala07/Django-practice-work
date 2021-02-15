@@ -1,0 +1,38 @@
+COMMANDS For using scrapy in terminal
+
+
+> pip install scrapy
+  ##if any error occured of twisted error..
+  ##go to the python extension package for windows 10 and
+    dwnld the proper pyhon version twisted
+    >pip install (the copied dwonld file here)
+    >pip install scrapy
+
+> scrapy startproject projectname
+
+> cd projectname
+
+> scrapy genspider expertzlab expertzlab.com
+   ##expertzlab is the py file spider created file..
+   ##expertzlab.com is the site which you want to check
+
+> scrapy crawl expertzlab
+  ##execute the spider file ..call
+  ## here we get the html informations of that web page
+
+##install beautifulsoup ...to extract the datas using soup
+>pip install beautifulsoup4
+
+>scrapy crawl expertzlab -o expertz.csv
+ ##here you can save the extracted datas in csv / json files
+
+Scrapy shell ..simialr to django shell
+
+>scrapy shell expertzlab.com
+
+>respose.text
+  ##we get the details of this site
+  enter the code for finding the data
+  >course=response.xpath("//div[...]")
+  >course
+    ##we get the courses titles
